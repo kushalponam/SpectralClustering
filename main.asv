@@ -1,0 +1,15 @@
+function label = main(filename,k)
+
+A = importdata(filename);
+L = A(:,3);
+
+global D
+D = A(:,[1,2]);
+
+global N
+N = size(D,1)
+
+matrix_A = zeros(N
+
+
+end
