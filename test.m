@@ -1,0 +1,1 @@
+main('data\aggregation.txt', 9 , 1);

@@ -52,6 +52,6 @@ matrix_Y = normc(matrix_X);
 
 
 %%call kmeans on matrix_Y and K
-
+kmeans(matrix_Y, K);
 
 end
