@@ -43,9 +43,5 @@ end
 
 label = make_clusters(data,K,centroids);
 
-%%visualize
-visualize_result(data,label);
-visualize_centroids(centroids,label);
-
 
 end

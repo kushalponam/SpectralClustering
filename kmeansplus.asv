@@ -43,8 +43,11 @@ end
 
 label = make_clusters(data,K,centroids);
 
+
+
+
 %%visualize
-visualize_result(
+
 
 
 end
