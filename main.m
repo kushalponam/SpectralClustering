@@ -54,8 +54,9 @@ matrix_Y = normc(matrix_X);
 
 label = kmeansplus(matrix_Y,K);
 
-%kmedianlabels = kmedians(matrix_Y,K);
+%label = kmedians(matrix_Y,K);
 
+visualize_result(D,label);
 %%call kmeans on matrix_Y and K
 %[idx, S] = kmeans(matrix_Y, K);
 S = mykmeans(matrix_Y, K);

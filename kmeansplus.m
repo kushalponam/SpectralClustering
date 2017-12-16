@@ -43,5 +43,29 @@ end
 
 label = make_clusters(data,K,centroids);
 
+%% if some clusters are empty, re-set that cluster's centroid.
+while(find_empty_cluster(K, label) ~= 0)
+    empty_cluster_index = find_empty_cluster(K, label);
+    centroids = re_set_that_centroid(data, K, centroids, empty_cluster_index);
+    label = make_clusters(data, K, centroids);
+end
+
+%% save current centroids in previous_centroids
+previous_centroids = centroids;
+
+%% update centroids using set_centroids
+centroids = set_centroids(data, K, label);
+
+%% if there are difference between centroids and previous_centroids, do all jobs again
+while(check_change_of_centroids(previous_centroids, centroids, K) == 1)
+    label = make_clusters(data, K, centroids);
+    while(find_empty_cluster(K, label) ~= 0)
+        empty_cluster_index = find_empty_cluster(K, label);
+        centroids = re_set_that_centroid(data, K, centroids, empty_cluster_index);
+        label = make_clusters(data, K, centroids);
+    end
+    previous_centroids = centroids;
+    centroids = set_centroids(data, K, label);
+end
 
 end
