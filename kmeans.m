@@ -3,8 +3,8 @@ function S = kmeans(X, k)
     Xs = centers2clusters(S, X, k);
     new_S = clusters2centers(Xs, k);
     while ~isequal(S, new_S)
-        Xs = centers2clusters(S, X, k);
         S = new_S;
+        Xs = centers2clusters(S, X, k);
         new_S = clusters2centers(Xs, k);
     end
 end
