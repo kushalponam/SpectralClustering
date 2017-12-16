@@ -53,6 +53,9 @@ matrix_X(:, :) = eigenvectors(:, size_eigen-K+1:size_eigen);
 matrix_Y = normc(matrix_X);
 
 label = kmeansplus(matrix_Y,K);
+
+%kmedianlabels = kmedians(matrix_Y,K);
+
 %%call kmeans on matrix_Y and K
 %[idx, S] = kmeans(matrix_Y, K);
 S = mykmeans(matrix_Y, K);
