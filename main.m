@@ -1,4 +1,4 @@
-%function label = main(filename,K,sigma)
+function label = main(filename,K,sigma)
 
 %% Load data
 A = importdata('data/aggregation.txt');
@@ -8,8 +8,8 @@ D = A(:,[1,2]);
 
 global N
 N = size(D,1)
-sigma = 1;
-K = 5;
+%sigma = 1;
+%K = 5;
 
 matrix_A = zeros(N,N);
 
