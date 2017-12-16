@@ -1,7 +1,7 @@
 function label = main(filename,K,sigma)
 
 %% Load data
-A = importdata('data\aggregation.txt');
+A = importdata('data/aggregation.txt');
 
 global D
 D = A(:,[1,2]);
@@ -52,6 +52,7 @@ matrix_Y = normc(matrix_X);
 
 
 %%call kmeans on matrix_Y and K
-kmeans(matrix_Y, K);
-
+%[idx, S] = kmeans(matrix_Y, K);
+S = mykmeans(matrix_Y, K);
+value = objective(matrix_Y, S);
 end
