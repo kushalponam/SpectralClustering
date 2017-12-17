@@ -1,5 +1,5 @@
 function ncut = solve_ncut(data, vols, label, L, D)
-   X = solve_X(data, vols, label)
+   X = solve_X(data, vols, label);
    [m,n] = size(vols);
    ncut = 0;
    for j=1:m
