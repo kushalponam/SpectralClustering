@@ -29,6 +29,31 @@ for i=1:N
         case 7
             plot(data(i,1), data(i,2), 'y.')
             hold on
+        case 8
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.78,0.082,0.522],'MarkerFaceColor',[0.78,0.082,0.522])
+            hold on
+        case 9
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[1,0.498,0.314],'MarkerFaceColor',[1,0.498,0.314])
+            hold on
+        case 10
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.498, 1.000, 0.831],'MarkerFaceColor',[0.498, 1.000, 0.831])
+            hold on
+        case 11
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.282, 0.820, 0.800],'MarkerFaceColor',[0.282, 0.820, 0.800])
+            hold on
+        case 12
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.957, 0.643, 0.376],'MarkerFaceColor',[0.957, 0.643, 0.376])
+            hold on
+        case 13
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[1.000, 0.894, 0.882],'MarkerFaceColor',[1.000, 0.894, 0.882])
+            hold on
+        case 14
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.000, 0.000, 0.502],'MarkerFaceColor',[0.000, 0.000, 0.502])
+            hold on
+        case 15
+            plot(data(i,1), data(i,2),'--gs','LineWidth',1,'MarkerSize',2,'MarkerEdgeColor',[0.000, 0.545, 0.545],'MarkerFaceColor',[0.000, 0.545, 0.545])
+            hold on
+        
     end
 end
 
