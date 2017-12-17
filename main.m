@@ -54,4 +54,24 @@ matrix_X(:, :) = eigenvectors(:, size_eigen-K+1:size_eigen);
 %% calculate normalized matrix of eigenvector and run kmeans on it
 matrix_Y = normc(matrix_X);
 
+label = kmeansplus(matrix_Y,K);
+[idx] = kmedoids(matrix_Y,K);
+S = mykmeans(matrix_Y, K);
+kmeanslabel = set_label(matrix_Y, S);
+
+
+vols = CalculateClusterVolumes(idx,matrix_D,K); 
+ncut = solve_ncut(D, vols, idx, L, matrix_D); 
+visualize_result(D,idx,'kmedians',ncut,K);
+
+%vols = CalculateClusterVolumes(label,matrix_D,K); 
+%ncut = solve_ncut(D, vols, label, L, matrix_D); 
+%visualize_result(D,label,'kmeans++',ncut,K);
+
+
+%vols = CalculateClusterVolumes(kmeanslabel,matrix_D,K); 
+%ncut = solve_ncut(D, vols, kmeanslabel, L, matrix_D); 
+%visualize_result(D,kmeanslabel,'kmeans',ncut,K);
+
+
 end

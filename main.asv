@@ -1,7 +1,7 @@
 function label = main(filename,K,sigma)
 
 %% Load data
-A = importdata('data/aggregation.txt');
+A = importdata(filename);
 
 global D
 D = A(:,[1,2]);
@@ -32,6 +32,8 @@ for i=1:N
     matrix_D(i, i) = sum(matrix_A(i, :));
 end
 
+L = matrix_D - matrix_A;
+
 %% calculate laplacian matrix
 matrix_L = zeros(N,N);
 
@@ -53,17 +55,24 @@ matrix_X(:, :) = eigenvectors(:, size_eigen-K+1:size_eigen);
 matrix_Y = normc(matrix_X);
 
 label = kmeansplus(matrix_Y,K);
+[idx] = kmedoids(matrix_Y,K);
+kmeansLabel = mykmeans(matrix_Y,K);
 
-visualize_result(D,label);
+vols = CalculateClusterVolumes(idx,matrix_D,K); 
+ncut = solve_ncut(D, vols, idx, L, matrix_D); 
 
-[idx,C] = kmedoids(matrix_Y,K);
+visualize_result(D,idx,'kmedians',ncut,K);
 
-visualize_result(D,idx);
+%vols = CalculateClusterVolumes(label,matrix_D,K); 
+%ncut = solve_ncut(D, vols, label, L, matrix_D); 
+%visualize_result(D,label,'kmeans++',ncut,K);
 
-%%call kmeans on matrix_Y and K
-%[idx, S] = kmeans(matrix_Y, K);
-S = mykmeans(matrix_Y, K);
-label = set_label(matrix_Y, S);
-vols = CalculateClusterVolumes(label,matrix_D,K);
-ncut = solve_ncut(D, vols, label, matrix_L, matrix_D);
+
+%vols = CalculateClusterVolumes(kmeansLabel,matrix_D,K); 
+%ncut = solve_ncut(D, vols, kmeansLabel, L, matrix_D); 
+%visualize_result(D,kmeansLabel,'kmeans++',ncut,K);
+
+
+
+
 end
