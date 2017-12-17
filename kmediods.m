@@ -1,4 +1,4 @@
-function kmed = mykmedians(X,k)
+function [label, index, opt_target_val] = kmediods(X, init)
   [d,n] = size(X);
   if numel(init)==1
       k = init;
@@ -6,10 +6,10 @@ function kmed = mykmedians(X,k)
   elseif numel(init)==n
       label = init;
   end
-  X = X-mean(X,2);             % reduce chance of numerical problems
+  X = X-mean(X,2);             
   v = dot(X,X,1);
   D = v+v'-2*(X'*X);            % Euclidean distance matrix
-  D(sub2ind([d,d],1:d,1:d)) = 0;              % reduce chance of numerical problems
+  D(sub2ind([d,d],1:d,1:d)) = 0;              
   last = zeros(1,n);
   while any(label ~= last)
       [~,~,last(:)] = unique(label);   % remove empty clusters
