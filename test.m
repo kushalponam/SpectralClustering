@@ -1,1 +1,1 @@
-main('data/aggregation.txt', 9 , 1);
+main('data/compound.txt',6 , 1);

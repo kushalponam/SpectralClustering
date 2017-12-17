@@ -32,6 +32,8 @@ for i=1:N
     matrix_D(i, i) = sum(matrix_A(i, :));
 end
 
+L = matrix_D - matrix_A;
+
 %% calculate laplacian matrix
 matrix_L = zeros(N,N);
 
@@ -51,6 +53,5 @@ matrix_X(:, :) = eigenvectors(:, size_eigen-K+1:size_eigen);
 
 %% calculate normalized matrix of eigenvector and run kmeans on it
 matrix_Y = normc(matrix_X);
-
 
 end
