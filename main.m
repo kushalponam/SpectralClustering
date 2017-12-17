@@ -60,5 +60,7 @@ visualize_result(D,label);
 %%call kmeans on matrix_Y and K
 %[idx, S] = kmeans(matrix_Y, K);
 S = mykmeans(matrix_Y, K);
-value = objective(matrix_Y, S);
+label = set_label(matrix_Y, S);
+vols = CalculateClusterVolumes(label,matrix_D,K);
+ncut = solve_ncut(D, vols, label, matrix_L, matrix_D);
 end
