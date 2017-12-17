@@ -1,4 +1,4 @@
-function visualize_result(data, label, algo_name, ncut)
+function visualize_result(data, label, algo_name, ncut, k)
 % plot graph of data
 
 %% get global variables
@@ -10,6 +10,10 @@ s1 = strcat(s1, algo_name);
 s2 = ' - NCut: ';
 s2 = strcat(s2, num2str(ncut));
 s = strcat(s1, s2);
+s3 = ' - K: ';
+s3 = strcat(s3, num2str(k));
+s = strcat(s, s3)
+
 
 %% visualize data: it's shape is ., and different colors used as per labels
 for i=1:N
