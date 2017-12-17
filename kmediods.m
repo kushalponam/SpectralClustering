@@ -1,3 +1,4 @@
+
 function [label, index, opt_target_val] = kmediods(X, init)
   [d,n] = size(X);
   if numel(init)==1

@@ -1,4 +1,0 @@
-function volumeA = CalculateClusterVolumes(data,label,degreeMat)
-
-
-end

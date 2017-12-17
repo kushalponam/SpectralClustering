@@ -1,7 +1,7 @@
 function label = main(filename,K,sigma)
 
 %% Load data
-A = importdata('data/aggregation.txt');
+A = importdata(filename);
 
 global D
 D = A(:,[1,2]);
@@ -52,19 +52,5 @@ matrix_X(:, :) = eigenvectors(:, size_eigen-K+1:size_eigen);
 %% calculate normalized matrix of eigenvector and run kmeans on it
 matrix_Y = normc(matrix_X);
 
-label = kmeansplus(matrix_Y,K);
 
-visualize_result(D,label);
-
-[idx,C] = kmedoids(matrix_Y,K);
-
-visualize_result(D,idx);
-
-%%call kmeans on matrix_Y and K
-%[idx, S] = kmeans(matrix_Y, K);
-S = mykmeans(matrix_Y, K);
-label = set_label(matrix_Y, S);
-vols = CalculateClusterVolumes(label,matrix_D,K);
-ncut = solve_ncut(D, vols, idx, matrix_L, matrix_D);
-disp(ncut);
 end
