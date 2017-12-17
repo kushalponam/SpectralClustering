@@ -1,9 +1,15 @@
-function visualize_result(data, label)
+function visualize_result(data, label, algo_name, ncut)
 % plot graph of data
 
 %% get global variables
 global N
 N = size(data, 1);
+
+s1 = 'Algorithm: ';
+s1 = strcat(s1, algo_name);
+s2 = ' - NCut: ';
+s2 = strcat(s2, num2str(ncut));
+s = strcat(s1, s2);
 
 %% visualize data: it's shape is ., and different colors used as per labels
 for i=1:N
@@ -56,6 +62,6 @@ for i=1:N
         
     end
 end
-
+title(s);
 end
 
